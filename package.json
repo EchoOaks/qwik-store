@@ -6,7 +6,7 @@
 	},
 	"private": true,
 	"scripts": {
-		"build": "qwik build",
+		"build": "npm run build.client && npm run build.server && npm run i18n-translate",
 		"build.client": "vite build && npm run i18n-translate",
 		"build.preview": "vite build --ssr src/entry.preview.tsx",
 		"build.server": "vite build -c adapters/vercel-edge/vite.config.ts",
@@ -23,7 +23,8 @@
 		"lint": "eslint \"src/**/*.ts*\"",
 		"preview": "qwik build preview && vite preview --open",
 		"start": "vite --open --mode ssr",
-		"qwik": "qwik"
+		"qwik": "qwik",
+		"clean": "del dist"
 	},
 	"devDependencies": {
 		"@angular/compiler": "^16.2.1",
@@ -40,7 +41,7 @@
 		"autoprefixer": "^10.4.15",
 		"cypress": "^13.6.4",
 		"cypress-ct-qwik": "^0.3.0",
-		"eslint": "^8.57.0",
+		"eslint": "^8.47.0",
 		"eslint-plugin-qwik": "^1.2.13",
 		"postcss": "^8.4.28",
 		"prettier": "3.0.2",
@@ -53,6 +54,7 @@
 	},
 	"dependencies": {
 		"@angular/localize": "^16.2.1",
+		"del": "^7.1.0",
 		"qwik-image": "^0.0.7",
 		"qwik-storefront-ui": "0.0.7"
 	}
