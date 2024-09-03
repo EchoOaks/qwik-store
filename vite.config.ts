@@ -11,8 +11,12 @@ export default defineConfig(() => {
     },
     build: {
       rollupOptions: {
+        input: {
+          main: './index.html',  // Explicitly include index.html in the build
+        },
         external: ['node:async_hooks'], // Treat this Node.js built-in module as external
       },
+      outDir: 'dist', // Ensure the output directory is correct
     },
     preview: {
       headers: {
