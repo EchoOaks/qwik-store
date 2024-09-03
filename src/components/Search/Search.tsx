@@ -29,7 +29,10 @@ export const Search = component$(() => {
 					placeholder='Search'
 					class='min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent'
 					onChange$={(event) => {
-						searchSig.value = event.target.value;
+						const target = event.target as HTMLInputElement;
+						if (target) {
+							searchSig.value = target.value;
+						}
 					}}
 					onKeyUp$={(event) => {
 						if (event.key === 'Enter') {
